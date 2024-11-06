@@ -1,8 +1,8 @@
 "use client"
 
-import { useMutation } from "@tanstack/react-query"
+import { useMutation, useQuery } from "@tanstack/react-query"
 
-import { login } from "@/services/user"
+import { getUser, login, signup } from "@/services/user"
 
 export const useLogin = () => {
     const { mutateAsync, isPending } = useMutation({
@@ -12,6 +12,19 @@ export const useLogin = () => {
     return { login: mutateAsync, isLoggingIn: isPending }
 }
 
-export const useSignup = () => {}
+export const useSignup = () => {
+    const { mutateAsync, isPending } = useMutation({
+        mutationFn: signup
+    })
 
-export const useUser = () => {}
+    return { signup: mutateAsync, isSigningUp: isPending }
+}
+
+export const useUser = () => {
+    const { data, isFetching } = useQuery({
+        queryKey: ["getUser"],
+        queryFn: getUser
+    })
+
+    return { user: data, isGettingUser: isFetching }
+}

@@ -1,6 +1,6 @@
 "use client"
 
-import { TLoginService } from "@/types/services"
+import { TGetUserService, TLoginService, TSignupService } from "@/types/services"
 
 import api from "./api"
 
@@ -9,6 +9,12 @@ export const login: TLoginService = async(payload) => {
     return data
 }
 
-export const signup = async() => {}
+export const signup: TSignupService = async(payload) => {
+    const { data } = await api.post("/users/signup", payload)
+    return data
+}
 
-export const getUser = async() => {}
+export const getUser: TGetUserService = async() => {
+    const { data } = await api.get("/users")
+    return data
+}
