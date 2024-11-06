@@ -6,12 +6,14 @@ import {
   QueryClient,
   QueryClientProvider,
 } from '@tanstack/react-query'
+import Auth from "@/components/Auth"
 
 function makeQueryClient() {
   return new QueryClient({
     defaultOptions: {
       queries: {
         staleTime: 60 * 1000,
+        refetchOnWindowFocus: false,
       },
     },
   })
@@ -33,7 +35,9 @@ const Providers: React.FC<React.PropsWithChildren> = ({ children }) => {
     
     return (
         <QueryClientProvider client={queryClient}>
-            {children}
+            <Auth>
+              {children}
+            </Auth>
         </QueryClientProvider>
     )
 }

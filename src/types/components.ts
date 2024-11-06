@@ -7,3 +7,11 @@ export interface IButtonProps extends React.DetailedHTMLProps<React.ButtonHTMLAt
 export interface IInputProps extends React.DetailedHTMLProps<React.InputHTMLAttributes<HTMLInputElement>, HTMLInputElement> {
     error?: string;
 }
+
+export interface IAuthProps {
+    children?: React.ReactNode | React.ReactNode[];
+}
+
+export interface ILoaderProps {
+    className?: string;
+}

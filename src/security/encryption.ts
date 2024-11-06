@@ -27,7 +27,11 @@ export const decrypt = (encryptedData: string) => {
           padding: pad.Pkcs7,
           iv: iv,
         }).toString(enc.Utf8)
-        return JSON.parse(decryptedData)
+        try {
+            return JSON.parse(decryptedData)
+        } catch (error) {
+            return decryptedData
+        }
     } catch (error) {
         console.error(error)
         return {}

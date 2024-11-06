@@ -8,13 +8,19 @@ import Image from "next/image"
 
 import duckLogo from "../../../../../public/icon128.png"
 import Input from "@/components/Input"
+import { useSignup } from "@/hooks/user"
 
 const SignupForm = () => {
     const { register, handleSubmit, formState: { errors } } = useForm()
     const router = useRouter()
+    const { signup } = useSignup()
 
     const onSubmit = async(data: any) => {
-        console.log(data)
+        try {
+            signup(data)
+        } catch (error) {
+            console.error(error)
+        }
     }
 
     return (

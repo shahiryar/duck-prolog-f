@@ -8,6 +8,17 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      keyframes: {
+        heartbeat: {
+          '0%, 100%': { transform: 'scale(1)' },
+          '10%': { transform: 'scale(1.2)' },
+          '20%': { transform: 'scale(1)' },
+          '30%': { transform: 'scale(1.2)' }
+        },
+      },
+      animation: {
+        heartbeat: 'heartbeat 1s ease-in-out infinite',
+      },
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
