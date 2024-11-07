@@ -25,7 +25,7 @@ const SignupForm = () => {
 
     return (
         <form
-            className="flex flex-col justify-center items-center gap-4 w-full px-4"
+            className="animate-fade-in flex flex-col justify-center items-center gap-4 w-full px-4"
             onSubmit={handleSubmit(onSubmit)}
         >
             <div className="flex flex-col justify-center items-center gap-2">

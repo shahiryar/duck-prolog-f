@@ -26,12 +26,12 @@ const Auth: React.FC<IAuthProps> = ({
     </div>
 
     if(!user?._id && restrictedPathsWhenLoggedOut.some(path => pathname.includes(path))) {
-        router.push("/login")
+        setTimeout(() => router.push("/login"), 150)
         return <></>
     }
 
     if(user?._id && restrictedPathsWhenLoggedIn.some(path => pathname.includes(path))) {
-        router.push("/dashboard")
+        setTimeout(() => router.push("/dashboard"), 150)
         return <></>
     }
 

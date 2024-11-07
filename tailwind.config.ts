@@ -15,9 +15,14 @@ const config: Config = {
           '20%': { transform: 'scale(1)' },
           '30%': { transform: 'scale(1.2)' }
         },
+        'fade-in': {
+          '0%': { opacity: '0' },
+          '100%': { opacity: '1' }
+        },
       },
       animation: {
         heartbeat: 'heartbeat 1s ease-in-out infinite',
+        'fade-in': 'fade-in 0.5s ease-in-out',
       },
       colors: {
         background: "var(--background)",
