@@ -3,25 +3,19 @@
 import { useRouter } from "next/navigation"
 import { useForm } from "react-hook-form"
 import Button from "@/components/Button"
+import { useSignup } from "@/hooks/user"
+import Input from "@/components/Input"
 import classNames from "classnames"
 import Image from "next/image"
 
 import duckLogo from "../../../../../public/icon128.png"
-import Input from "@/components/Input"
-import { useSignup } from "@/hooks/user"
 
 const SignupForm = () => {
     const { register, handleSubmit, formState: { errors } } = useForm()
     const router = useRouter()
     const { signup } = useSignup()
 
-    const onSubmit = async(data: any) => {
-        try {
-            signup(data)
-        } catch (error) {
-            console.error(error)
-        }
-    }
+    const onSubmit = async(data: any) => signup(data)
 
     return (
         <form

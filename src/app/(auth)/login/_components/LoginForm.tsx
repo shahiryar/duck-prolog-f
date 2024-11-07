@@ -15,14 +15,7 @@ const LoginForm = () => {
     const router = useRouter()
     const { login, isLoggingIn } = useLogin()
 
-    const onSubmit = async (data: any) => {
-        try {
-            const res = await login(data)
-            console.log(res)
-        } catch (error) {
-            console.error(error)
-        }
-    }
+    const onSubmit = async (data: any) => login(data)
 
     return (
         <form

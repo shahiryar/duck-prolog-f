@@ -7,6 +7,7 @@ import {
   QueryClientProvider,
 } from '@tanstack/react-query'
 import Auth from "@/components/Auth"
+import { Toaster } from "react-hot-toast"
 
 function makeQueryClient() {
   return new QueryClient({
@@ -37,6 +38,7 @@ const Providers: React.FC<React.PropsWithChildren> = ({ children }) => {
         <QueryClientProvider client={queryClient}>
             <Auth>
               {children}
+              <Toaster />
             </Auth>
         </QueryClientProvider>
     )
